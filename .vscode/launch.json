@@ -1,19 +1,36 @@
 {
   "version": "0.2.0",
   "configurations": [
-      {
-          "type": "firefox",
-          "request": "launch",
-          "name": "Launch Firefox against localhost",
-          "url": "http://localhost:4200",
-          "webRoot": "${workspaceRoot}"
-      },
-      {
-          "type": "firefox",
-          "request": "attach",
-          "name": "Attach to Firefox",
-          "port": 9222,
-          "webRoot": "${workspaceRoot}"
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceRoot}"
+    },
+    {
+      "type": "firefox",
+      "request": "attach",
+      "name": "Attach",
+      "port": 4200,
+      "log": {
+        "fileName": "${workspaceFolder}/vscode-firefox-debug.log",
+        "fileLevel": {
+          "default": "Debug"
+        },
+        "consoleLevel": {
+          "default": "Debug"
+        }
       }
+    },
+{
+  "type": "firefox",
+  "request": "launch",
+  "reAttach": true,
+  "name": "Launch localhost",
+  "url": "http://localhost/",
+  "port": 4200,
+  "webRoot": "${workspaceFolder}"
+}
   ]
 }

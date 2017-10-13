@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Headers } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -25,6 +24,16 @@ export class HeroService {
       .toPromise()
       .then(data => data as Hero)
       .catch(this.handleError);
+  }
+
+  update(hero: Hero): Promise<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http
+      .put(url, hero)
+      .toPromise()
+      .then(() => hero)
+      .catch(this.handleError);
+
   }
 
   private handleError(error: any): Promise<any> {
